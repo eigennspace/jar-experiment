@@ -20,16 +20,12 @@ import lombok.Setter;
 @Entity
 public class Staff {
     @Id
-    @Column(name = "staff_id", columnDefinition = "bigint")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger staff_id;
+    private BigInteger staffId;
 
-    @Column(length = 45, nullable = false)
-    private String first_name;
+    private String firstName;
 
-    @Column(length = 45, nullable = false)
-    private String last_name;
+    private String lastName;
 
-    @Column(length = 50)
     private String email;
 }
