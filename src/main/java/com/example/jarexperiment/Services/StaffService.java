@@ -17,4 +17,8 @@ public class StaffService {
     public List<Staff> getAll(){
         return this.staffRepository.findAll();
     }
+
+    public Staff createStaff(Staff staff){
+        return this.staffRepository.save(staff);
+    }
 }
