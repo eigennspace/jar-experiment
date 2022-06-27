@@ -2,6 +2,8 @@ package com.example.jarexperiment.Controllers;
 
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class StaffController {
+    private static final Logger logger = LogManager.getLogger(StaffController.class);
     private StaffService staffService;
 
     /***
@@ -25,7 +28,12 @@ public class StaffController {
     @GetMapping("/staffs")
     public ResponseEntity<List<Staff>> getStaffs(){
         List<Staff> staffList = this.staffService.getAll();
-            
+
+        logger.info("================CREATE DATA==================");
+        logger.info(staffList);
+        logger.info("==============END CREATE DATA================");
+
+
         return ResponseEntity.ok(staffList);
     }
 
